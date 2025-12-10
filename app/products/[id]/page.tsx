@@ -21,7 +21,6 @@ function ProductDetailContent({ productId }: { productId: string }) {
   const [isFavorite, setIsFavorite] = useState(false)
   const baseUrl = process.env.NEXT_PUBLIC_API_URL
 
-  // Fetch product from API
   const { data: product, isLoading, error } = useQuery({
     queryKey: ["product", productId],
     queryFn: () => fetchProductById(productId),
@@ -43,13 +42,10 @@ function ProductDetailContent({ productId }: { productId: string }) {
   return (
     <div className="min-h-screen bg-white">
         <Header cartCount={1} />
-      {/* Main Product Section */}
      <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           
-          {/* Mobile Layout: Product Info First */}
           <div className="md:hidden flex flex-col gap-6">
-            {/* Header */}
             <div>
               <h1 className="text-2xl font-bold mb-2">{product.name}</h1>
               <p className="text-gray-600 mb-4">{product.type}</p>
@@ -91,14 +87,11 @@ function ProductDetailContent({ productId }: { productId: string }) {
             </div>
           </div>
 
-          {/* Image Gallery */}
           <div className="flex flex-col gap-4 md:order-1">
             <ImageGallery productImage={product.image ? `${baseUrl}${product.image}` : "/placeholder.svg"} productName={product.name} />
           </div>
 
-          {/* Desktop Layout: Product Info */}
           <div className="hidden md:flex flex-col gap-6 md:order-2">
-            {/* Header */}
             <div>
               <h1 className="text-3xl md:text-4xl font-bold mb-2">{product.name}</h1>
               <p className="text-gray-600 mb-4">{product.type}</p>
@@ -139,15 +132,12 @@ function ProductDetailContent({ productId }: { productId: string }) {
               </div>
             </div>
 
-            {/* Size Guide Link */}
             <div className="flex items-center justify-between">
               <h3 className="font-semibold">Select Size</h3>
               <button className="text-sm flex items-center gap-1"> Size Guide</button>
             </div>
-            {/* Size Selector */}
             <SizeSelector selectedSize={selectedSize} onSizeChange={setSelectedSize} />
 
-            {/* Action Buttons */}
             <div className="flex flex-col gap-3">
               <Button
                 size="lg"
@@ -167,7 +157,6 @@ function ProductDetailContent({ productId }: { productId: string }) {
               </Button>
             </div>
 
-            {/* Terms */}
             <p className="text-xs text-gray-500">
               By adding an item to your cart, you agree to our{" "}
               <a href="#" className="underline">
@@ -181,7 +170,6 @@ function ProductDetailContent({ productId }: { productId: string }) {
           </div>
         </div>
 
-        {/* Expandable Sections */}
         <div className="max-w-2xl mx-auto xl:ml-162  border-t border-gray-200 pt-8">
           <Accordion type="single" collapsible className="w-full" defaultValue="details">
             <AccordionItem value="details">
@@ -221,7 +209,6 @@ function ProductDetailContent({ productId }: { productId: string }) {
         </div>
       </div>
 
-      {/* Related Products */}
       <RelatedProducts currentProductId={product.id} />
       <Footer />
     </div>

@@ -47,7 +47,6 @@ export default function SignupForm({ onToggleMode }: SignupFormProps) {
       }
       router.push("/products")
     } catch (err: any) {
-      // Show server-provided message if present, otherwise fallback
       setServerError(err?.response?.data?.message || err?.message || "Signup failed")
     } finally {
       setLoading(false)
@@ -56,7 +55,6 @@ export default function SignupForm({ onToggleMode }: SignupFormProps) {
 
   return (
     <div className="w-full md:w-1/2 bg-white p-6 md:p-12 flex flex-col justify-center overflow-y-auto">
-      {/* Sign In Link */}
       <div className="flex justify-center mb-6 md:mb-5">
         <p className="text-xs md:text-sm text-gray-600">
           Already have an account?{" "}
@@ -69,15 +67,12 @@ export default function SignupForm({ onToggleMode }: SignupFormProps) {
         </p>
       </div>
 
-      {/* Form Content */}
       <div className="max-w-md mx-auto w-full">
-        {/* Heading */}
         <h2 className="text-2xl text-center md:text-4xl font-bold text-black mb-3">Join Nike Today!</h2>
         <p className="text-sm text-center md:text-base text-gray-600 mb-6 md:mb-8">
           Create your account to start your fitness journey
         </p>
 
-        {/* OAuth Buttons */}
         <button className="w-full border border-gray-300 rounded-lg py-2 md:py-3 mb-3 md:mb-4 hover:bg-gray-50 flex items-center justify-center gap-2 md:gap-3">
           <Chrome size={18} className="md:w-5 md:h-5 text-gray-800" />
           <span className="text-xs md:text-sm text-gray-800 font-medium">Continue with Google</span>
@@ -88,7 +83,6 @@ export default function SignupForm({ onToggleMode }: SignupFormProps) {
           <span className="text-xs md:text-sm text-gray-800 font-medium">Continue with Apple</span>
         </button>
 
-        {/* Divider */}
         <div className="relative mb-4 md:mb-6">
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-gray-300"></div>
@@ -98,9 +92,7 @@ export default function SignupForm({ onToggleMode }: SignupFormProps) {
           </div>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 md:space-y-6">
-          {/* Full Name */}
           <div>
             <label className="block text-xs md:text-sm font-semibold text-gray-800 mb-1 md:mb-2">Full Name</label>
             <input
@@ -118,7 +110,6 @@ export default function SignupForm({ onToggleMode }: SignupFormProps) {
             {errors.fullName && <p className="text-red-500 text-xs md:text-sm mt-1">{errors.fullName.message}</p>}
           </div>
 
-          {/* Email */}
           <div>
             <label className="block text-xs md:text-sm font-semibold text-gray-800 mb-1 md:mb-2">Email</label>
             <input
@@ -136,7 +127,6 @@ export default function SignupForm({ onToggleMode }: SignupFormProps) {
             {errors.email && <p className="text-red-500 text-xs md:text-sm mt-1">{errors.email.message}</p>}
           </div>
 
-          {/* Password */}
           <div>
             <label className="block text-xs md:text-sm font-semibold text-gray-800 mb-1 md:mb-2">Password</label>
             <div className="relative">
@@ -167,7 +157,6 @@ export default function SignupForm({ onToggleMode }: SignupFormProps) {
             {errors.password && <p className="text-red-500 text-xs md:text-sm mt-1">{errors.password.message}</p>}
           </div>
 
-          {/* Sign Up Button */}
           <button
             type="submit"
             disabled={loading}
@@ -179,7 +168,6 @@ export default function SignupForm({ onToggleMode }: SignupFormProps) {
           {serverError && <p className="text-red-500 text-xs md:text-sm mt-2">{serverError}</p>}
         </form>
 
-        {/* Terms */}
         <p className="text-xs text-gray-600 text-center mt-4 md:mt-6">
           By signing up, you agree to our{" "}
           <a href="#" className="underline hover:text-gray-800">

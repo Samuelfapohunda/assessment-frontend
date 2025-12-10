@@ -12,7 +12,6 @@ export default function Header({ cartCount }: { cartCount: number }) {
     <header className="border-b border-border bg-white sticky top-0 z-10">
       <div className="px-4 md:px-8 py-4">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
-          {/* Logo */}
             <div>
                 <Image src="/logo (1).png" alt="Nike Logo" width={40} height={40} />
              </div>   
@@ -36,7 +35,6 @@ export default function Header({ cartCount }: { cartCount: number }) {
             </nav>
           
 
-          {/* Right Section */}
           <div className="flex items-center gap-2 md:gap-4">
             <div className="sm:flex items-center gap-2 cursor-pointer" onClick={() => setSearchBarOpen(!searchBarOpen)}>
                <p className="text-foreground text-md font-medium hover:text-muted-foreground">Search</p>
@@ -44,7 +42,6 @@ export default function Header({ cartCount }: { cartCount: number }) {
 
             <button className="flex items-center gap-1 text-sm hover:text-muted-foreground whitespace-nowrap">
               <span className="sm:inline text-md font-medium">My Cart ({cartCount})</span>
-              {/*<span className="sm:hidden text-xs">({cartCount})</span>*/}
             </button>
           </div>
         </div>

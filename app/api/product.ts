@@ -16,7 +16,6 @@ export interface ProductFilters {
 
 export async function fetchProducts(filters: ProductFilters = {}) {
   try {
-    // Build query params
     const params = new URLSearchParams()
     
     if (filters.gender) params.append("gender", filters.gender)
@@ -36,18 +35,19 @@ export async function fetchProducts(filters: ProductFilters = {}) {
       headers: {
         "Content-Type": "application/json",
       },
+      cache: "no-store",
     })
 
-    if (!response.ok) {
+    if (!response.ok && response.status !== 304) {
       throw new Error(`Failed to fetch products: ${response.statusText}`)
     }
 
     const rawData = await response.json()
     
-    // Validate response with Zod
+    console.log("Raw API response:", rawData)
+    
     const validatedData = ProductsResponseSchema.parse(rawData)
     
-    // Transform products to match your component interface
     const transformedProducts = validatedData.data.map(transformProduct)
     
     return {

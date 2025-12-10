@@ -51,12 +51,10 @@ export default function ProductsPage() {
             )}
           </div>
 
-          {/* Desktop sidebar - always visible */}
           <div className="hidden lg:block">
             <Sidebar filters={filters} onFiltersChange={setFilters} />
           </div>
 
-          {/* Main Content */}
           <div className="flex-1">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-end gap-4 mb-6 md:mb-8">
               <button
@@ -94,12 +92,10 @@ export default function ProductsPage() {
               </div>
             </div>
 
-            {/* Product Grid */}
             <ProductGrid filters={filters} />
           </div>
         </div>
 
-        {/* Footer */}
        <Footer />
       </div>
     </QueryClientProvider>

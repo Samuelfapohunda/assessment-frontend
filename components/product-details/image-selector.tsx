@@ -11,7 +11,6 @@ interface ImageGalleryProps {
 export default function ImageGallery({ productImage, productName }: ImageGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  // Generate multiple views of the same product
   const images = Array.from({ length: 8 }).map(() => productImage)
 
   const goToPrevious = () => {
@@ -24,9 +23,7 @@ export default function ImageGallery({ productImage, productName }: ImageGallery
 
   return (
     <div className="flex flex-col gap-4">
-      {/* Main Image */}
       <div className="flex gap-4 items-start">
-        {/* Thumbnails - hidden on mobile */}
         <div className="hidden md:flex flex-col gap-2">
           {images.map((img, index) => (
             <button
@@ -45,7 +42,6 @@ export default function ImageGallery({ productImage, productName }: ImageGallery
           ))}
         </div>
 
-        {/* Main Image Container */}
         <div className="flex-1">
           <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center relative border-2 border-blue-500 md:border-0">
             <img
@@ -53,12 +49,10 @@ export default function ImageGallery({ productImage, productName }: ImageGallery
               alt={productName}
               className="w-full h-full object-cover"
             />
-            {/* Badge */}
             <div className="absolute top-3 left-3 bg-white px-3 py-2 border rounded-full text-xs md:text-sm font-semibold">
               ★ Highly Rated
             </div>
 
-            {/* Navigation Arrows */}
             <div className="flex justify-end items-center gap-2 absolute bottom-4 right-4">
               <button 
                 title="Previous image" 
@@ -79,7 +73,6 @@ export default function ImageGallery({ productImage, productName }: ImageGallery
         </div>
       </div>
 
-      {/* Mobile Thumbnail Gallery - shown only on mobile */}
       <div className="md:hidden overflow-x-auto">
         <div className="flex gap-2 pb-2">
           {images.map((img, index) => (

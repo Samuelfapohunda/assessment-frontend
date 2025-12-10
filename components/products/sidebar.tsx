@@ -39,7 +39,6 @@ export default function Sidebar({ filters, onFiltersChange }: SidebarProps) {
 
   return (
     <aside className="w-full lg:w-48 lg:flex-shrink-0">
-      {/* New Products */}
       <div className="mb-6 md:mb-8">
         <h3 className="font-semibold text-sm mb-4">New (500)</h3>
         <div className="space-y-2 text-sm">
@@ -62,7 +61,6 @@ export default function Sidebar({ filters, onFiltersChange }: SidebarProps) {
         </div>
       </div>
 
-      {/* Gender */}
       <div className="mb-8 pb-8 border-b border-border">
         <button className="flex items-center justify-between w-full mb-4">
           <span className="font-semibold text-sm">Gender</span>
@@ -99,7 +97,6 @@ export default function Sidebar({ filters, onFiltersChange }: SidebarProps) {
         </div>
       </div>
 
-      {/* Kids */}
       <div className="mb-8 pb-8 border-b border-border">
         <button className="flex items-center justify-between w-full mb-4">
           <span className="font-semibold text-sm">Kids</span>
@@ -117,7 +114,6 @@ export default function Sidebar({ filters, onFiltersChange }: SidebarProps) {
         </div>
       </div>
 
-      {/* Shop by Price */}
       <div className="mb-8 pb-8 border-b border-border">
         <button className="flex items-center justify-between w-full mb-4">
           <span className="font-semibold text-sm">Shop by Price</span>
@@ -163,7 +159,6 @@ export default function Sidebar({ filters, onFiltersChange }: SidebarProps) {
         </div>
       </div>
 
-      {/* Shoe Height */}
       <div className="mb-8">
         <button className="flex items-center justify-between w-full mb-4">
           <span className="font-semibold text-sm">Shoe Height</span>
@@ -179,7 +174,6 @@ export default function Sidebar({ filters, onFiltersChange }: SidebarProps) {
         </div>
       </div>
 
-      {/* Sports */}
       <div>
         <button className="flex items-center justify-between w-full mb-4">
           <span className="font-semibold text-sm">Sports</span>

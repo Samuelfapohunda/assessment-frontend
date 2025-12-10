@@ -37,7 +37,6 @@ interface ProductGridProps {
   filters: ProductFilters
 }
 
-// Memoized card to avoid re-rendering all images when favorites change
 const ProductCard = memo(function ProductCard({
   product,
   isFavorite,
@@ -47,7 +46,6 @@ const ProductCard = memo(function ProductCard({
   isFavorite: boolean
   onToggleFavorite: (id: string) => void
 }) {
-  // local image src state to handle onError fallback without affecting parent
   const baseUrl = process.env.NEXT_PUBLIC_API_URL
   const [imageSrc, setImageSrc] = useState(product.image ? `${baseUrl}${product.image}` : "/placeholder.svg")
 
@@ -59,15 +57,12 @@ const ProductCard = memo(function ProductCard({
           alt={product.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform"
           onError={() => {
-            // replace failing image with placeholder to avoid repeated 404s
             if (imageSrc !== "/placeholder.svg") setImageSrc("/placeholder.svg")
           }}
-          unoptimized={false} // keep default optimization; fallback will avoid repeated 404s
         />
 
         <button
           onClick={(e) => {
-            // Prevent Link navigation when toggling favorite
             e.preventDefault()
             e.stopPropagation()
             onToggleFavorite(product.id)
@@ -106,7 +101,6 @@ const ProductCard = memo(function ProductCard({
     </Link>
   )
 },
-// custom comparator: only re-render if relevant product fields or favorite status changed
 (prev, next) =>
   prev.isFavorite === next.isFavorite &&
   prev.product.id === next.product.id &&

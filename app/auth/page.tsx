@@ -10,10 +10,8 @@ export default function AuthPage() {
 
   return (
     <div className="flex flex-col md:flex-row h-screen bg-white">
-      {/* Left Sidebar */}
       <SignupSidebar />
 
-      {/* Right Form Section */}
       {isSignIn ? (
         <SignInForm onToggleMode={() => setIsSignIn(false)} />
       ) : (

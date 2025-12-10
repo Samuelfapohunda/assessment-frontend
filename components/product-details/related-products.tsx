@@ -13,7 +13,6 @@ export default function RelatedProducts({ currentProductId }: RelatedProductsPro
   const { data, isLoading } = useQuery({
     queryKey: ["relatedProducts", currentProductId],
     queryFn: async () => {
-      // Fetch products with a limit, excluding current product on client side
       const result = await fetchProducts({ limit: 4 })
       return result.products.filter((p) => p.id !== currentProductId).slice(0, 3)
     },
